@@ -1,0 +1,106 @@
+%****************************************************************************************************
+% Pacotes necessários -- verifique se todos estão instalados em seu sistema
+%****************************************************************************************************
+\documentclass[12pt]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english,brazil]{babel}
+\usepackage[a4paper,left=3cm,right=2cm,bottom=2cm,top=3cm]{geometry}
+\usepackage[titletoc]{appendix}
+\usepackage[sc]{mathpazo}
+\linespread{1.05}
+\usepackage[T1]{fontenc}
+\usepackage{fancyhdr,setspace,float,graphicx,lscape,array,longtable,colortbl,amsmath,amssymb,booktabs,multirow,hyperref,pdfpages,titlesec,lipsum,natbib,standalone,lineno,textcomp,footmisc,color,framed,xspace,xcolor,listings,tocloft,xcolor,tocbibind,lipsum}
+
+\pagenumbering{arabic}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyheadoffset{0cm}
+\renewcommand{\headrulewidth}{0pt} 
+\renewcommand{\footrulewidth}{0pt}
+\fancyhead[R]{\makebox[0pt][l]{\makebox[0cm][r]{\thepage}}}
+\fancypagestyle{plain}{
+   \fancyhf{}
+   \fancyhead[R]{\makebox[0pt][l]{\makebox[0cm][r]{\thepage}}}
+}
+
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\setlength{\headheight}{14.50pt} 
+
+\input{dados}
+
+\begin{document}
+
+%****************************************************************************************************
+% Edite cada um dos seguintes arquivos na pasta ``preambulo''
+%****************************************************************************************************
+
+%****************************************************************************************************
+% Elementos pré-textuais
+%****************************************************************************************************
+
+\input{preambulo/folha_de_rosto.tex}
+\input{preambulo/aprovacao}
+\input{preambulo/dedicatoria}
+\input{preambulo/agradecimentos}
+\input{preambulo/epigrafe}
+
+%****************************************************************************************************
+
+\input{preambulo/resumo}
+\input{preambulo/abstract}
+
+%****************************************************************************************************
+% Sumário -- não modificar
+%****************************************************************************************************
+\renewcommand{\cfttoctitlefont}{\Large\bfseries\hfill}
+\renewcommand{\cftaftertoctitle}{\hfill}
+\renewcommand\cftloftitlefont{\Large\bfseries\hfill}
+\renewcommand{\cftafterloftitle}{\hfill}
+\renewcommand\cftlottitlefont{\Large\bfseries\hfill}
+\renewcommand{\cftafterlottitle}{\hfill}
+
+\newpage
+\addtocontents{lof}{\protect\thispagestyle{empty}}
+\listoffigures
+\thispagestyle{empty}
+\newpage
+
+\addtocontents{lot}{\protect\thispagestyle{empty}}
+\listoftables
+\thispagestyle{empty}
+\newpage
+
+\addtocontents{toc}{\protect\thispagestyle{empty}}
+\normalsize
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+
+%****************************************************************************************************
+% Retira ou adiciona os capítulos do seu trabalho
+%****************************************************************************************************
+
+\include{capitulo1/introducao}
+\include{capitulo2/capitulo2}
+\include{capitulo3/capitulo3}
+\include{capitulo4/capitulo4}
+\include{capitulo5/conclusao}
+
+\newpage
+\bibliography{referencias}
+\bibliographystyle{apalike}
+
+%Apêndices
+\begin{appendices}
+    \include{apendices/apendice_a}
+    \include{apendices/apendice_b}
+\end{appendices}
+
+\end{document}
