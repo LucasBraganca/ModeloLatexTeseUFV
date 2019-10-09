@@ -8,7 +8,7 @@
 \usepackage[a4paper,left=3cm,right=2cm,bottom=2cm,top=3cm]{geometry}
 \usepackage[titletoc]{appendix}
 \usepackage[sc]{mathpazo}
-\linespread{1.05}
+\linespread{1.25}
 \usepackage[T1]{fontenc}
 \usepackage{fancyhdr,setspace,float,graphicx,lscape,array,longtable,colortbl,amsmath,amssymb,booktabs,multirow,hyperref,pdfpages,titlesec,lipsum,natbib,standalone,lineno,textcomp,footmisc,color,framed,xspace,xcolor,listings,tocloft,xcolor,tocbibind,lipsum}
 
@@ -86,21 +86,26 @@
 %****************************************************************************************************
 % Retire ou adiciona os capítulos do seu trabalho
 %****************************************************************************************************
-
+\begin{onehalfspace}
 \include{capitulo1/introducao}
 \include{capitulo2/capitulo2}
 \include{capitulo3/capitulo3}
 \include{capitulo4/capitulo4}
 \include{capitulo5/conclusao}
+\end{onehalfspace}
 
 \newpage
 \bibliography{referencias}
 \bibliographystyle{apalike}
 
-%Apêndices
+%****************************************************************************************************
+% Retire ou adiciona os apendices do seu trabalho
+%****************************************************************************************************
 \begin{appendices}
+\begin{onehalfspace}
     \include{apendices/apendice_a}
     \include{apendices/apendice_b}
+\end{onehalfspace}
 \end{appendices}
 
 \end{document}
