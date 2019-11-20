@@ -8,7 +8,7 @@
 \usepackage[a4paper,left=3cm,right=2cm,bottom=2cm,top=3cm]{geometry}
 \usepackage[titletoc]{appendix}
 \usepackage[sc]{mathpazo}
-\linespread{1.25}
+\linespread{1.5}
 \usepackage[T1]{fontenc}
 \usepackage{fancyhdr,setspace,float,graphicx,lscape,array,longtable,colortbl,amsmath,amssymb,booktabs,multirow,hyperref,pdfpages,titlesec,lipsum,natbib,standalone,lineno,textcomp,footmisc,color,framed,xspace,xcolor,listings,tocloft,xcolor,tocbibind,lipsum}
 
@@ -20,8 +20,8 @@
 \renewcommand{\footrulewidth}{0pt}
 \fancyhead[R]{\makebox[0pt][l]{\makebox[0cm][r]{\thepage}}}
 \fancypagestyle{plain}{
-   \fancyhf{}
-   \fancyhead[R]{\makebox[0pt][l]{\makebox[0cm][r]{\thepage}}}
+  \fancyhf{}
+  \fancyhead[R]{\makebox[0pt][l]{\makebox[0cm][r]{\thepage}}}
 }
 
 \hypersetup{
@@ -31,12 +31,19 @@
     urlcolor={blue!80!black}
 }
 
-\setlength{\headheight}{14.50pt} 
+\renewcommand{\cftchapfont}{\scshape}
+
+\titleformat{\chapter}[display]
+   {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}{0pt}{0pt}{40pt}
+
+\setlength{\cftbeforetoctitleskip}{-1em}
+\setlength{\cftbeforeloftitleskip}{-1em}
+\setlength{\cftbeforelottitleskip}{-1em}
 
 \input{dados}
 
 \begin{document}
-
 %****************************************************************************************************
 % Edite cada um dos seguintes arquivos na pasta ``preambulo''
 %****************************************************************************************************
@@ -57,55 +64,53 @@
 \input{preambulo/abstract}
 
 %****************************************************************************************************
-% Sumário
+% Sumário -- não modificar
 %****************************************************************************************************
-\renewcommand{\cfttoctitlefont}{\Large\bfseries\hfill}
+\renewcommand{\cfttoctitlefont}{\Large\bfseries\hfill\MakeUppercase}
 \renewcommand{\cftaftertoctitle}{\hfill}
-\renewcommand\cftloftitlefont{\Large\bfseries\hfill}
+\renewcommand\cftloftitlefont{\Large\bfseries\hfill\MakeUppercase}
 \renewcommand{\cftafterloftitle}{\hfill}
-\renewcommand\cftlottitlefont{\Large\bfseries\hfill}
+\renewcommand\cftlottitlefont{\Large\bfseries\hfill\MakeUppercase}
 \renewcommand{\cftafterlottitle}{\hfill}
-
+% 
 \newpage
-\addtocontents{lof}{\protect\thispagestyle{empty}}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
 \listoffigures
 \thispagestyle{empty}
-\newpage
+\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
 
-\addtocontents{lot}{\protect\thispagestyle{empty}}
+\newpage
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
 \listoftables
 \thispagestyle{empty}
-\newpage
+\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
 
-\addtocontents{toc}{\protect\thispagestyle{empty}}
-\normalsize
+\newpage
+\addtocontents{toc}{\protect\setcounter{tocdepth}{-1}}
 \tableofcontents
 \thispagestyle{empty}
-\newpage
+\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
 
 %****************************************************************************************************
-% Retire ou adiciona os capítulos do seu trabalho
+% Retira ou adiciona os capítulos do seu trabalho
 %****************************************************************************************************
-\begin{onehalfspace}
+\begin{onehalfspacing}
+
 \include{capitulo1/introducao}
 \include{capitulo2/capitulo2}
 \include{capitulo3/capitulo3}
 \include{capitulo4/capitulo4}
 \include{capitulo5/conclusao}
-\end{onehalfspace}
 
 \newpage
 \bibliography{referencias}
 \bibliographystyle{apalike}
 
-%****************************************************************************************************
-% Retire ou adiciona os apendices do seu trabalho
-%****************************************************************************************************
+%Apêndices
 \begin{appendices}
-\begin{onehalfspace}
     \include{apendices/apendice_a}
     \include{apendices/apendice_b}
-\end{onehalfspace}
 \end{appendices}
 
+\end{onehalfspacing}
 \end{document}
