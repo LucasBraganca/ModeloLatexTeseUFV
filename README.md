@@ -1,4 +1,4 @@
-# Modelo Latex Tese/Dissertação UFV-2019
+# Modelo Latex Tese/Dissertação UFV
 
 Template baseado no modelo disponivel em: https://github.com/ViniciusBRodrigues/TeseUFVLatex.
 
