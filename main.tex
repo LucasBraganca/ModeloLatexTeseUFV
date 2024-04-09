@@ -26,7 +26,7 @@
 
 \hypersetup{
     colorlinks,
-    linkcolor={red!50!black},
+    linkcolor={black!50!black},
     citecolor={blue!50!black},
     urlcolor={blue!80!black}
 }
@@ -44,6 +44,18 @@
 \input{dados}
 
 \input{remove_appendix_error}
+
+\usepackage{tikz}
+\newcommand*\juncircblk[1]{\tikz[baseline=(char.base)]{ \node[shape=circle,color=white,fill=black,draw,inner sep=0.8pt] (char) {#1};}}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+\setlength{\headheight}{14.49998pt}
+
+\tolerance=1
+\emergencystretch=\maxdimen
+\hyphenpenalty=10000
+\hbadness=10000
 
 \begin{document}
 %****************************************************************************************************
